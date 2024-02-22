@@ -10,6 +10,9 @@ env:
   BUILD_TYPE: Release
   DOXYGEN_VER: 1.10.0
 
+permissions:
+  contents: write
+
 jobs:
   Windows:
     runs-on: windows-latest
