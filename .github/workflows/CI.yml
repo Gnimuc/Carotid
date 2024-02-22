@@ -8,7 +8,7 @@ on:
 
 env:
   BUILD_TYPE: Release
-  DOXYGEN_VER: 1.9.2
+  DOXYGEN_VER: 1.10.0
 
 jobs:
   Windows:
@@ -38,7 +38,7 @@ jobs:
         New-Item ${{steps.doxygen.outputs.DOXYGEN_PREFIX}} -ItemType directory
         Invoke-WebRequest -Uri https://www.doxygen.nl/files/doxygen-${{env.DOXYGEN_VER}}-setup.exe -UserAgent "NativeHost" -OutFile ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}\doxygen_setup.exe
         ls ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}
-    
+
     - name: Install Doxygen
       run: |
         $installer = Start-Process -FilePath ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}\doxygen_setup.exe -Wait -PassThru -ArgumentList @("/VERYSILENT");
