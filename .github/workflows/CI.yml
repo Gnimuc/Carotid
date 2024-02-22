@@ -38,6 +38,13 @@ jobs:
         New-Item ${{steps.doxygen.outputs.DOXYGEN_PREFIX}} -ItemType directory
         Invoke-WebRequest -Uri https://www.doxygen.nl/files/doxygen-${{env.DOXYGEN_VER}}-setup.exe -UserAgent "NativeHost" -OutFile ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}\doxygen_setup.exe
         ls ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}
+    
+    - name: Setup Installation Env
+      run: |
+        New-Item ${{steps.pfx.outputs.INSTALL_PREFIX}} -ItemType directory
+        echo ${{steps.pfx.outputs.INSTALL_PREFIX}} | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        echo ${{steps.pfx.outputs.INSTALL_PREFIX}} | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        $ENV:Path.Split(";")
 
     - name: Install Doxygen
       run: |
