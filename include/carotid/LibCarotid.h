@@ -1,7 +1,7 @@
-#ifndef LIBCNVII_H
-#define LIBCNVII_H
+#ifndef LIBCAROTID_H
+#define LIBCAROTID_H
 
-#include "cnvii/Platform.h"
+#include "carotid/Platform.h"
 
 #ifdef __cplusplus
 extern "C" {

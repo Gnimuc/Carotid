@@ -10,7 +10,7 @@ include(cmake/utils.cmake)
 include(cmake/options.cmake)
 
 # External Dependencies
-add_subdirectory(external)
+add_subdirectory(external/Eigen)
 
 # Core Library
 add_library(Carotid SHARED)
@@ -24,19 +24,19 @@ target_include_directories(Carotid PUBLIC
 
 target_compile_features(Carotid PRIVATE $<IF:$<PLATFORM_ID:Windows>,cxx_std_23,cxx_std_20>)
 
-target_link_libraries(Carotid PRIVATE)
+target_link_libraries(Carotid PRIVATE Eigen3::Eigen)
 
 set_target_properties(Carotid PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 include(cmake/install_config.cmake)
 
-if(LIBCAROTID_BUILD_TESTS)
+if(CAROTID_BUILD_TESTS)
     enable_testing()
     add_subdirectory(external/Catch2)
     add_subdirectory(tests)
 endif()
 
-if (LIBCAROTID_BUILD_DOCS)
+if (CAROTID_BUILD_DOCS)
     add_subdirectory(docs)
 endif()
 

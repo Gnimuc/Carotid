@@ -1,5 +1,6 @@
 #include "carotid/LibCarotid.h"
-
-using namespace carotid;
+#include <Eigen/Dense>
+ 
+using Eigen::MatrixXd;
 
 bool carotid_sanity_check(void) { return true; }
