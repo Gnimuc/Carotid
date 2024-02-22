@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: ['**']
+
+env:
+  BUILD_TYPE: Release
+  DOXYGEN_VER: 1.9.2
+
+jobs:
+  Windows:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set Doxygen Prefix
+      id: doxygen
+      run: echo "::set-output name=DOXYGEN_PREFIX::C:\depot\doxygen\${{env.DOXYGEN_VER}}"
+
+    - name: Set Install Prefix
+      id: pfx
+      run: echo "::set-output name=INSTALL_PREFIX::C:\opt"
+
+    - name: Cache
+      id: cache
+      uses: actions/cache@v2.1.6
+      with:
+        path: C:\depot
+        key: Doxygen-${{env.DOXYGEN_VER}}
+
+    - name: Download & Cache Doxygen
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        New-Item ${{steps.doxygen.outputs.DOXYGEN_PREFIX}} -ItemType directory
+        Invoke-WebRequest -Uri https://www.doxygen.nl/files/doxygen-${{env.DOXYGEN_VER}}-setup.exe -UserAgent "NativeHost" -OutFile ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}\doxygen_setup.exe
+        ls ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}
+    
+    - name: Install Doxygen
+      run: |
+        $installer = Start-Process -FilePath ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}\doxygen_setup.exe -Wait -PassThru -ArgumentList @("/VERYSILENT");
+        $installer.WaitForExit();
+
+    - name: Build
+      working-directory: ${{github.workspace}}\build
+      run: |
+        cmake .. -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=${{steps.pfx.outputs.INSTALL_PREFIX}} -DCAROTID_BUILD_TESTS=true -DCAROTID_BUILD_DOCS=true
+        cmake --build . --config ${{env.BUILD_TYPE}}
+
+    - name: Test
+      working-directory: ${{github.workspace}}\build
+      run: ctest -C ${{env.BUILD_TYPE}} --verbose
+      
+    - name: Run Doxygen
+      working-directory: ${{github.workspace}}\build
+      run: cmake --build . --config ${{env.BUILD_TYPE}} --target CarotidDocs
+
+    - name: Deploy Docs
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ${{github.workspace}}\build\docs\html
