@@ -51,6 +51,10 @@ jobs:
         $installer = Start-Process -FilePath ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}\doxygen_setup.exe -Wait -PassThru -ArgumentList @("/VERYSILENT");
         $installer.WaitForExit();
 
+    - name: Prebuild
+      run: |
+        New-Item ${{github.workspace}}\build -ItemType directory
+
     - name: Build
       working-directory: ${{github.workspace}}\build
       run: |
