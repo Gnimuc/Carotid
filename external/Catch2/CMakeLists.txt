@@ -9,3 +9,6 @@ FetchContent_Declare(
 message(STATUS "Fetching Catch2...")
 
 FetchContent_MakeAvailable(Catch2)
+
+set(CATCH_INSTALL_DOCS OFF)
+set(CATCH_INSTALL_EXTRAS OFF)

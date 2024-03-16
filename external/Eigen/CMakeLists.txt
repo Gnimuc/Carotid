@@ -1,19 +1,15 @@
 include(FetchContent)
 
 FetchContent_Declare(
-    Eigen
+    Eigen3
     GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
-    GIT_TAG 3.4.0
-    GIT_SHALLOW TRUE
-    GIT_PROGRESS TRUE
+    GIT_TAG        9df21dc8b4b576a7aa5c0094daa8d7e8b8be60f0 # 3.4.x
+    GIT_SHALLOW    TRUE
 )
 
 message(STATUS "Fetching Eigen...")
 
-set(BUILD_TESTING OFF)
-set(EIGEN_BUILD_TESTING OFF)
-set(EIGEN_MPL2_ONLY ON)
-set(EIGEN_BUILD_PKGCONFIG OFF)
-set(EIGEN_BUILD_DOC OFF)
+FetchContent_MakeAvailable(Eigen3)
 
-FetchContent_MakeAvailable(Eigen)
+set(EIGEN_BUILD_TESTING OFF)
+set(EIGEN_SPLIT_LARGE_TESTS OFF)
