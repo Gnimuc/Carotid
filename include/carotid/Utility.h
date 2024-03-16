@@ -21,7 +21,6 @@ template <typename T>
   Mat<T> mat(rows, cols);
 
   in.read(reinterpret_cast<char *>(mat.data()), rows * cols * sizeof(T));
-  in.close();
 
   return mat;
 }
