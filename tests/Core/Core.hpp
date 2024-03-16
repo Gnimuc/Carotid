@@ -2,6 +2,6 @@
 #define CAROTID_CORE_HPP
 
 #include "carotid/LibCarotid.h"
-#include "carotid/Utility.hpp"
+#include "carotid/Utility.h"
 
 #endif // CAROTID_CORE_HPP

@@ -1,5 +1,5 @@
-#ifndef CAROTID_UTILITY_HPP
-#define CAROTID_UTILITY_HPP
+#ifndef CAROTID_UTILITY_H
+#define CAROTID_UTILITY_H
 
 #include <Eigen/Dense>
 #include <fstream>
@@ -28,4 +28,4 @@ template <typename T>
 
 } // namespace carotid
 
-#endif // CAROTID_UTILITY_HPP
+#endif // CAROTID_UTILITY_H
