@@ -2,7 +2,7 @@ add_executable(Core_UNITTEST Core.cpp Core.h)
 target_link_libraries(Core_UNITTEST PRIVATE Carotid Catch2::Catch2WithMain Eigen3::Eigen)
 
 target_compile_definitions(Core_UNITTEST PRIVATE UNITTEST_PROJECT_DIR="${PROJECT_SOURCE_DIR}")
-target_compile_features(Core_UNITTEST PRIVATE $<IF:$<PLATFORM_ID:Windows>,cxx_std_23,cxx_std_20>) # to enable `/std:c++latest`
+target_compile_features(Core_UNITTEST PRIVATE cxx_std_23)
 
 if (WIN32)
     add_custom_command(TARGET Core_UNITTEST POST_BUILD

@@ -22,7 +22,7 @@ target_include_directories(Carotid PUBLIC
                            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
                            $<INSTALL_INTERFACE:include>)
 
-target_compile_features(Carotid PRIVATE $<IF:$<PLATFORM_ID:Windows>,cxx_std_23,cxx_std_20>)
+target_compile_features(Carotid PRIVATE cxx_std_23)
 
 target_link_libraries(Carotid PRIVATE Eigen3::Eigen)
 
