@@ -1,4 +1,4 @@
-add_executable(Core_UNITTEST Core.cpp Core.hpp)
+add_executable(Core_UNITTEST Core.cpp Core.h)
 target_link_libraries(Core_UNITTEST PRIVATE Carotid Catch2::Catch2WithMain Eigen3::Eigen)
 
 target_compile_definitions(Core_UNITTEST PRIVATE UNITTEST_PROJECT_DIR="${PROJECT_SOURCE_DIR}")
