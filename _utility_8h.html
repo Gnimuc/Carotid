@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Carotid: include/carotid Directory Reference</title>
+<title>Carotid: include/carotid/Utility.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,18 +75,37 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">carotid Directory Reference</div></div>
+  <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">Utility.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &lt;Eigen/Dense&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+</div>
+<p><a href="_utility_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><a href="_lib_carotid_8h_source.html"><span class="icondoc"></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_lib_carotid_8h.html">LibCarotid.h</a></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacecarotid" id="r_namespacecarotid"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecarotid.html">carotid</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><a href="_platform_8h_source.html"><span class="icondoc"></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_platform_8h.html">Platform.h</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><a href="_utility_8h_source.html"><span class="icondoc"></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_utility_8h.html">Utility.h</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:acf937995cd2560578218b1ba6b728885" id="r_acf937995cd2560578218b1ba6b728885"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecarotid.html#acf937995cd2560578218b1ba6b728885">carotid::Path</a> = std::filesystem::path</td></tr>
+<tr class="separator:acf937995cd2560578218b1ba6b728885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684f4c2abe56266161a9795ffbcb8d2e" id="r_a684f4c2abe56266161a9795ffbcb8d2e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a684f4c2abe56266161a9795ffbcb8d2e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecarotid.html#a684f4c2abe56266161a9795ffbcb8d2e">carotid::Mat</a> = Eigen::Matrix&lt;T, Eigen::Dynamic, Eigen::Dynamic&gt;</td></tr>
+<tr class="separator:a684f4c2abe56266161a9795ffbcb8d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1a0ec8f4d51907662bff9f1e98f38b1e" id="r_a1a0ec8f4d51907662bff9f1e98f38b1e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a1a0ec8f4d51907662bff9f1e98f38b1e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacecarotid.html#a684f4c2abe56266161a9795ffbcb8d2e">Mat</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecarotid.html#a1a0ec8f4d51907662bff9f1e98f38b1e">carotid::loadBinaryIntoMatrix</a> (const <a class="el" href="namespacecarotid.html#acf937995cd2560578218b1ba6b728885">Path</a> &amp;filename, int rows, int cols)</td></tr>
+<tr class="separator:a1a0ec8f4d51907662bff9f1e98f38b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

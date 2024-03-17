@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['platform_2eh_0',['Platform.h',['../_platform_8h.html',1,'']]]
+  ['identitygenerator_2ecpp_0',['IdentityGenerator.cpp',['../_identity_generator_8cpp.html',1,'']]]
 ];
