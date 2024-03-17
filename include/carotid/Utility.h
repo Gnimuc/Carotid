@@ -2,6 +2,7 @@
 #define CAROTID_UTILITY_H
 
 #include <Eigen/Dense>
+#include <filesystem>
 #include <fstream>
 
 namespace carotid {

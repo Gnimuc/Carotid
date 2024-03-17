@@ -18,19 +18,21 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Set Doxygen Prefix
       id: doxygen
-      run: echo "::set-output name=DOXYGEN_PREFIX::C:\depot\doxygen\${{env.DOXYGEN_VER}}"
+      run: |
+        "DOXYGEN_PREFIX=C:\depot\doxygen\${{env.DOXYGEN_VER}}" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
     - name: Set Install Prefix
       id: pfx
-      run: echo "::set-output name=INSTALL_PREFIX::C:\opt"
+      run: |
+        "INSTALL_PREFIX=C:\opt" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
     - name: Cache
       id: cache
-      uses: actions/cache@v2.1.6
+      uses: actions/cache@v4
       with:
         path: C:\depot
         key: Doxygen-${{env.DOXYGEN_VER}}
