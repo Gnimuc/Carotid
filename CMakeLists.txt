@@ -11,6 +11,7 @@ include(cmake/options.cmake)
 
 # External Dependencies
 add_subdirectory(external/Eigen)
+add_subdirectory(external/spdlog)
 
 # Core Library
 add_library(Carotid SHARED)
@@ -24,7 +25,7 @@ target_include_directories(Carotid PUBLIC
 
 target_compile_features(Carotid PRIVATE cxx_std_23)
 
-target_link_libraries(Carotid PRIVATE Eigen3::Eigen)
+target_link_libraries(Carotid PRIVATE Eigen3::Eigen spdlog::spdlog)
 
 set_target_properties(Carotid PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
