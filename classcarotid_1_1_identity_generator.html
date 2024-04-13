@@ -93,17 +93,26 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aed8ef56fdc49dfec5ccadedcf10dad81" id="r_aed8ef56fdc49dfec5ccadedcf10dad81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed8ef56fdc49dfec5ccadedcf10dad81">IdentityGenerator</a> (const <a class="el" href="classcarotid_1_1_id_options.html">IdOptions</a> <a class="el" href="#a8df3c6a5a957de50bce74fb947fbf106">opts</a>)</td></tr>
 <tr class="separator:aed8ef56fdc49dfec5ccadedcf10dad81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4e7e95a40dd47d5d8b28d918faf997c" id="r_ae4e7e95a40dd47d5d8b28d918faf997c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4e7e95a40dd47d5d8b28d918faf997c">getNumRows</a> () const</td></tr>
-<tr class="memdesc:ae4e7e95a40dd47d5d8b28d918faf997c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of rows in the model matrix.  <br /></td></tr>
+<tr class="memdesc:ae4e7e95a40dd47d5d8b28d918faf997c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of rows in the egienvector matrix.  <br /></td></tr>
 <tr class="separator:ae4e7e95a40dd47d5d8b28d918faf997c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6ad3a530fe88fe587e73e63030651a9" id="r_ab6ad3a530fe88fe587e73e63030651a9"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6ad3a530fe88fe587e73e63030651a9">getNumCols</a> () const</td></tr>
-<tr class="memdesc:ab6ad3a530fe88fe587e73e63030651a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of columns in the model matrix.  <br /></td></tr>
+<tr class="memdesc:ab6ad3a530fe88fe587e73e63030651a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of columns in the egienvector matrix.  <br /></td></tr>
 <tr class="separator:ab6ad3a530fe88fe587e73e63030651a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a840e4dbbfaeae110e43b74dfb39bdf71" id="r_a840e4dbbfaeae110e43b74dfb39bdf71"><td class="memItemLeft" align="right" valign="top">std::pair&lt; uint32_t, uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a840e4dbbfaeae110e43b74dfb39bdf71">getSize</a> () const</td></tr>
-<tr class="memdesc:a840e4dbbfaeae110e43b74dfb39bdf71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the model matrix.  <br /></td></tr>
+<tr class="memdesc:a840e4dbbfaeae110e43b74dfb39bdf71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the eigenvector matrix.  <br /></td></tr>
 <tr class="separator:a840e4dbbfaeae110e43b74dfb39bdf71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1055abe1b802d23f8bdf46059ad18b77" id="r_a1055abe1b802d23f8bdf46059ad18b77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1055abe1b802d23f8bdf46059ad18b77">loadModelFromBinary</a> (const <a class="el" href="namespacecarotid.html#acf937995cd2560578218b1ba6b728885">Path</a> &amp;avgModelPath, const <a class="el" href="namespacecarotid.html#acf937995cd2560578218b1ba6b728885">Path</a> &amp;eigenvecsPath, const <a class="el" href="namespacecarotid.html#acf937995cd2560578218b1ba6b728885">Path</a> &amp;eigenvalsPath)</td></tr>
 <tr class="memdesc:a1055abe1b802d23f8bdf46059ad18b77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the model from binary files.  <br /></td></tr>
 <tr class="separator:a1055abe1b802d23f8bdf46059ad18b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c6ae1696913c07971b47f89b581c47c" id="r_a8c6ae1696913c07971b47f89b581c47c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c6ae1696913c07971b47f89b581c47c">validateModel</a> () const</td></tr>
+<tr class="memdesc:a8c6ae1696913c07971b47f89b581c47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate the model.  <br /></td></tr>
+<tr class="separator:a8c6ae1696913c07971b47f89b581c47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2546d166825e9c72654be448d1432ae0" id="r_a2546d166825e9c72654be448d1432ae0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacecarotid.html#a29b7ec0646c65297117566e81c33b171">Vec</a>&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2546d166825e9c72654be448d1432ae0">generateBaseModel</a> () const</td></tr>
+<tr class="memdesc:a2546d166825e9c72654be448d1432ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the base model.  <br /></td></tr>
+<tr class="separator:a2546d166825e9c72654be448d1432ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a872d44b74eef8cca1048d77cd6d37965" id="r_a872d44b74eef8cca1048d77cd6d37965"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacecarotid.html#a29b7ec0646c65297117566e81c33b171">Vec</a>&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a872d44b74eef8cca1048d77cd6d37965">generateModel</a> (const <a class="el" href="namespacecarotid.html#a29b7ec0646c65297117566e81c33b171">Vec</a>&lt; float &gt; &amp;eigenvals) const</td></tr>
+<tr class="memdesc:a872d44b74eef8cca1048d77cd6d37965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the model with the given eigenvalues.  <br /></td></tr>
+<tr class="separator:a872d44b74eef8cca1048d77cd6d37965"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -140,6 +149,52 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2546d166825e9c72654be448d1432ae0" name="a2546d166825e9c72654be448d1432ae0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2546d166825e9c72654be448d1432ae0">&#9670;&#160;</a></span>generateBaseModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacecarotid.html#a29b7ec0646c65297117566e81c33b171">Vec</a>&lt; float &gt; IdentityGenerator::generateBaseModel </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate the base model. </p>
+<dl class="section return"><dt>Returns</dt><dd>The base model </dd></dl>
+
+</div>
+</div>
+<a id="a872d44b74eef8cca1048d77cd6d37965" name="a872d44b74eef8cca1048d77cd6d37965"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a872d44b74eef8cca1048d77cd6d37965">&#9670;&#160;</a></span>generateModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacecarotid.html#a29b7ec0646c65297117566e81c33b171">Vec</a>&lt; float &gt; IdentityGenerator::generateModel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacecarotid.html#a29b7ec0646c65297117566e81c33b171">Vec</a>&lt; float &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>eigenvals</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate the model with the given eigenvalues. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eigenvals</td><td>The eigenvalues to use </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The model with the given eigenvalues </dd></dl>
+
+</div>
+</div>
 <a id="ab6ad3a530fe88fe587e73e63030651a9" name="ab6ad3a530fe88fe587e73e63030651a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab6ad3a530fe88fe587e73e63030651a9">&#9670;&#160;</a></span>getNumCols()</h2>
 
@@ -163,8 +218,8 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the number of columns in the model matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>The number of columns in the model matrix </dd></dl>
+<p>Get the number of columns in the egienvector matrix. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of columns in the egienvector matrix </dd></dl>
 
 </div>
 </div>
@@ -191,8 +246,8 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the number of rows in the model matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>The number of rows in the model matrix </dd></dl>
+<p>Get the number of rows in the egienvector matrix. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of rows in the egienvector matrix </dd></dl>
 
 </div>
 </div>
@@ -219,8 +274,8 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the size of the model matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>The size of the model matrix </dd></dl>
+<p>Get the size of the eigenvector matrix. </p>
+<dl class="section return"><dt>Returns</dt><dd>The size of the eigenvector matrix </dd></dl>
 
 </div>
 </div>
@@ -257,6 +312,26 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a8c6ae1696913c07971b47f89b581c47c" name="a8c6ae1696913c07971b47f89b581c47c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c6ae1696913c07971b47f89b581c47c">&#9670;&#160;</a></span>validateModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IdentityGenerator::validateModel </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Validate the model. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the model is valid, false otherwise </dd></dl>
 
 </div>
 </div>
