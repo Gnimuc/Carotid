@@ -42,7 +42,6 @@ jobs:
       run: |
         New-Item ${{steps.doxygen.outputs.DOXYGEN_PREFIX}} -ItemType directory
         Invoke-WebRequest -Uri https://www.doxygen.nl/files/doxygen-${{env.DOXYGEN_VER}}-setup.exe -UserAgent "NativeHost" -OutFile ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}\doxygen_setup.exe
-        ls ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}
     
     - name: Setup Installation Env
       run: |
