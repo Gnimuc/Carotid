@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['sanitycheck_2ecpp_0',['SanityCheck.cpp',['../_sanity_check_8cpp.html',1,'']]],
-  ['sanitycheck_2eh_1',['SanityCheck.h',['../_sanity_check_8h.html',1,'']]]
+  ['path_0',['Path',['../namespacecarotid.html#acf937995cd2560578218b1ba6b728885',1,'carotid']]],
+  ['platform_2eh_1',['Platform.h',['../_platform_8h.html',1,'']]]
 ];

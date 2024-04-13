@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['path_0',['Path',['../namespacecarotid.html#acf937995cd2560578218b1ba6b728885',1,'carotid']]],
-  ['platform_2eh_1',['Platform.h',['../_platform_8h.html',1,'']]]
+  ['mat_0',['Mat',['../namespacecarotid.html#a684f4c2abe56266161a9795ffbcb8d2e',1,'carotid']]]
 ];

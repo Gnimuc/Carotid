@@ -72,12 +72,23 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">carotid Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcarotid_1_1_identity_generator.html">IdentityGenerator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classcarotid_1_1_identity_generator.html" title="IdentityGenerator - A class for generating shape blendshapes.">IdentityGenerator</a> - A class for generating shape blendshapes.  <a href="classcarotid_1_1_identity_generator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcarotid_1_1_id_options.html">IdOptions</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classcarotid_1_1_id_options.html" title="IdOptions - Options for the IdentityGenerator class.">IdOptions</a> - Options for the <a class="el" href="classcarotid_1_1_identity_generator.html" title="IdentityGenerator - A class for generating shape blendshapes.">IdentityGenerator</a> class.  <a href="classcarotid_1_1_id_options.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:acf937995cd2560578218b1ba6b728885" id="r_acf937995cd2560578218b1ba6b728885"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf937995cd2560578218b1ba6b728885">Path</a> = std::filesystem::path</td></tr>
@@ -85,12 +96,27 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a684f4c2abe56266161a9795ffbcb8d2e" id="r_a684f4c2abe56266161a9795ffbcb8d2e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a684f4c2abe56266161a9795ffbcb8d2e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a684f4c2abe56266161a9795ffbcb8d2e">Mat</a> = Eigen::Matrix&lt;T, Eigen::Dynamic, Eigen::Dynamic&gt;</td></tr>
 <tr class="separator:a684f4c2abe56266161a9795ffbcb8d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29b7ec0646c65297117566e81c33b171" id="r_a29b7ec0646c65297117566e81c33b171"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a29b7ec0646c65297117566e81c33b171"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a29b7ec0646c65297117566e81c33b171">Vec</a> = Eigen::Matrix&lt;T, Eigen::Dynamic, 1&gt;</td></tr>
+<tr class="separator:a29b7ec0646c65297117566e81c33b171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab8df7a1d1c04b1717a5b38f4de4e45f1" id="r_ab8df7a1d1c04b1717a5b38f4de4e45f1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab8df7a1d1c04b1717a5b38f4de4e45f1"><td class="memTemplItemLeft" align="right" valign="top">std::expected&lt; <a class="el" href="#a684f4c2abe56266161a9795ffbcb8d2e">Mat</a>&lt; T &gt;, std::ios_base::failure &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab8df7a1d1c04b1717a5b38f4de4e45f1">loadBinaryIntoMatrix</a> (const <a class="el" href="#acf937995cd2560578218b1ba6b728885">Path</a> &amp;filename, int rows, int cols)</td></tr>
 <tr class="separator:ab8df7a1d1c04b1717a5b38f4de4e45f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5182a0ddce392fae37272f913c510cf" id="r_ae5182a0ddce392fae37272f913c510cf"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae5182a0ddce392fae37272f913c510cf"><td class="memTemplItemLeft" align="right" valign="top">std::expected&lt; <a class="el" href="#a29b7ec0646c65297117566e81c33b171">Vec</a>&lt; T &gt;, std::ios_base::failure &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae5182a0ddce392fae37272f913c510cf">loadBinaryIntoVector</a> (const <a class="el" href="#acf937995cd2560578218b1ba6b728885">Path</a> &amp;filename, int n)</td></tr>
+<tr class="separator:ae5182a0ddce392fae37272f913c510cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aee5eabf6198f41ae9352be8f6f1eb625" id="r_aee5eabf6198f41ae9352be8f6f1eb625"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee5eabf6198f41ae9352be8f6f1eb625">CAROTID_VERTEX_COUNT_LVL1</a> = 12466</td></tr>
+<tr class="separator:aee5eabf6198f41ae9352be8f6f1eb625"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7780ea97e4fb63d6db1624b33c16b9b" id="r_ac7780ea97e4fb63d6db1624b33c16b9b"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7780ea97e4fb63d6db1624b33c16b9b">CAROTID_VERTEX_COUNT_LVL2</a> = 49751</td></tr>
+<tr class="separator:ac7780ea97e4fb63d6db1624b33c16b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2c4ae0013ada080c7a400d40ece8f66" id="r_ac2c4ae0013ada080c7a400d40ece8f66"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2c4ae0013ada080c7a400d40ece8f66">CAROTID_VERTEX_COUNT_LVL3</a> = 198781</td></tr>
+<tr class="separator:ac2c4ae0013ada080c7a400d40ece8f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a684f4c2abe56266161a9795ffbcb8d2e" name="a684f4c2abe56266161a9795ffbcb8d2e"></a>
@@ -123,6 +149,22 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a29b7ec0646c65297117566e81c33b171" name="a29b7ec0646c65297117566e81c33b171"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29b7ec0646c65297117566e81c33b171">&#9670;&#160;</a></span>Vec</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a29b7ec0646c65297117566e81c33b171">carotid::Vec</a> = Eigen::Matrix&lt;T, Eigen::Dynamic, 1&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ab8df7a1d1c04b1717a5b38f4de4e45f1" name="ab8df7a1d1c04b1717a5b38f4de4e45f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab8df7a1d1c04b1717a5b38f4de4e45f1">&#9670;&#160;</a></span>loadBinaryIntoMatrix()</h2>
@@ -148,6 +190,96 @@ template&lt;typename T &gt; </div>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>cols</em></span>&#160;)</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae5182a0ddce392fae37272f913c510cf" name="ae5182a0ddce392fae37272f913c510cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5182a0ddce392fae37272f913c510cf">&#9670;&#160;</a></span>loadBinaryIntoVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::expected&lt; <a class="el" href="#a29b7ec0646c65297117566e81c33b171">Vec</a>&lt; T &gt;, std::ios_base::failure &gt; carotid::loadBinaryIntoVector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#acf937995cd2560578218b1ba6b728885">Path</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>filename</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="aee5eabf6198f41ae9352be8f6f1eb625" name="aee5eabf6198f41ae9352be8f6f1eb625"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee5eabf6198f41ae9352be8f6f1eb625">&#9670;&#160;</a></span>CAROTID_VERTEX_COUNT_LVL1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t carotid::CAROTID_VERTEX_COUNT_LVL1 = 12466</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac7780ea97e4fb63d6db1624b33c16b9b" name="ac7780ea97e4fb63d6db1624b33c16b9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7780ea97e4fb63d6db1624b33c16b9b">&#9670;&#160;</a></span>CAROTID_VERTEX_COUNT_LVL2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t carotid::CAROTID_VERTEX_COUNT_LVL2 = 49751</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2c4ae0013ada080c7a400d40ece8f66" name="ac2c4ae0013ada080c7a400d40ece8f66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2c4ae0013ada080c7a400d40ece8f66">&#9670;&#160;</a></span>CAROTID_VERTEX_COUNT_LVL3</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t carotid::CAROTID_VERTEX_COUNT_LVL3 = 198781</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
