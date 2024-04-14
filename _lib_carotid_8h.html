@@ -83,6 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_platform_8h_source.html">carotid/Platform.h</a>&quot;</code><br />
+<code>#include &quot;stdint.h&quot;</code><br />
 </div>
 <p><a href="_lib_carotid_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -102,6 +103,22 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a11b8dabf820ba28eaec4c2c94460ace4" id="r_a11b8dabf820ba28eaec4c2c94460ace4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11b8dabf820ba28eaec4c2c94460ace4">carotid_sanity_check</a> (void)</td></tr>
 <tr class="separator:a11b8dabf820ba28eaec4c2c94460ace4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababb3459d0cc8cac3ec0686614470d9c" id="r_ababb3459d0cc8cac3ec0686614470d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> <a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ababb3459d0cc8cac3ec0686614470d9c">carotid_context_create</a> (uint32_t n_params, <a class="el" href="#a3b1256cae0c28eea25e01db4972b7f29">carotid_err</a> *err)</td></tr>
+<tr class="separator:ababb3459d0cc8cac3ec0686614470d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfdef3cecfb078bf57f5db144502824e" id="r_acfdef3cecfb078bf57f5db144502824e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfdef3cecfb078bf57f5db144502824e">carotid_context_dispose</a> (<a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a> ctx)</td></tr>
+<tr class="separator:acfdef3cecfb078bf57f5db144502824e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44830b2cad2f3f04a8d1ed0f152bb254" id="r_a44830b2cad2f3f04a8d1ed0f152bb254"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44830b2cad2f3f04a8d1ed0f152bb254">carotid_load_model</a> (<a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a> ctx, const char *model_dir, <a class="el" href="#a3b1256cae0c28eea25e01db4972b7f29">carotid_err</a> *err)</td></tr>
+<tr class="separator:a44830b2cad2f3f04a8d1ed0f152bb254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f5af1ef56231380217fae2288a6c237" id="r_a3f5af1ef56231380217fae2288a6c237"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f5af1ef56231380217fae2288a6c237">carotid_get_vertex_count</a> (<a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a> ctx)</td></tr>
+<tr class="separator:a3f5af1ef56231380217fae2288a6c237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04bfe11f4ae1d85e07492e7a53736cc2" id="r_a04bfe11f4ae1d85e07492e7a53736cc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04bfe11f4ae1d85e07492e7a53736cc2">carotid_get_param_count</a> (<a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a> ctx)</td></tr>
+<tr class="separator:a04bfe11f4ae1d85e07492e7a53736cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a390f9e95b7e0a1919f0ec478dcca0db2" id="r_a390f9e95b7e0a1919f0ec478dcca0db2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a390f9e95b7e0a1919f0ec478dcca0db2">carotid_update_model</a> (<a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a> ctx, const float *params, uint32_t len)</td></tr>
+<tr class="separator:a390f9e95b7e0a1919f0ec478dcca0db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a2fad0df8a015db0448bc16d53f9512" id="r_a6a2fad0df8a015db0448bc16d53f9512"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a2fad0df8a015db0448bc16d53f9512">carotid_get_model</a> (<a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a> ctx, float *model, uint32_t len)</td></tr>
+<tr class="separator:a6a2fad0df8a015db0448bc16d53f9512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87fb7460cf677adbb7018b92f96a7f27" id="r_a87fb7460cf677adbb7018b92f96a7f27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87fb7460cf677adbb7018b92f96a7f27">carotid_get_basemodel</a> (<a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a> ctx, float *model, uint32_t len)</td></tr>
+<tr class="separator:a87fb7460cf677adbb7018b92f96a7f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a16b9c9e6fe86b3447bb761d023468229" name="a16b9c9e6fe86b3447bb761d023468229"></a>
@@ -138,6 +155,156 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ababb3459d0cc8cac3ec0686614470d9c" name="ababb3459d0cc8cac3ec0686614470d9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ababb3459d0cc8cac3ec0686614470d9c">&#9670;&#160;</a></span>carotid_context_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> <a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a> carotid_context_create </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>n_params</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a3b1256cae0c28eea25e01db4972b7f29">carotid_err</a> *</td>          <td class="paramname"><span class="paramname"><em>err</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfdef3cecfb078bf57f5db144502824e" name="acfdef3cecfb078bf57f5db144502824e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfdef3cecfb078bf57f5db144502824e">&#9670;&#160;</a></span>carotid_context_dispose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> void carotid_context_dispose </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a></td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87fb7460cf677adbb7018b92f96a7f27" name="a87fb7460cf677adbb7018b92f96a7f27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87fb7460cf677adbb7018b92f96a7f27">&#9670;&#160;</a></span>carotid_get_basemodel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> void carotid_get_basemodel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a></td>          <td class="paramname"><span class="paramname"><em>ctx</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>model</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a2fad0df8a015db0448bc16d53f9512" name="a6a2fad0df8a015db0448bc16d53f9512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a2fad0df8a015db0448bc16d53f9512">&#9670;&#160;</a></span>carotid_get_model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> void carotid_get_model </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a></td>          <td class="paramname"><span class="paramname"><em>ctx</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>model</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04bfe11f4ae1d85e07492e7a53736cc2" name="a04bfe11f4ae1d85e07492e7a53736cc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04bfe11f4ae1d85e07492e7a53736cc2">&#9670;&#160;</a></span>carotid_get_param_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> uint32_t carotid_get_param_count </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a></td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f5af1ef56231380217fae2288a6c237" name="a3f5af1ef56231380217fae2288a6c237"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f5af1ef56231380217fae2288a6c237">&#9670;&#160;</a></span>carotid_get_vertex_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> uint32_t carotid_get_vertex_count </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a></td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44830b2cad2f3f04a8d1ed0f152bb254" name="a44830b2cad2f3f04a8d1ed0f152bb254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44830b2cad2f3f04a8d1ed0f152bb254">&#9670;&#160;</a></span>carotid_load_model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> void carotid_load_model </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a></td>          <td class="paramname"><span class="paramname"><em>ctx</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>model_dir</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a3b1256cae0c28eea25e01db4972b7f29">carotid_err</a> *</td>          <td class="paramname"><span class="paramname"><em>err</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a11b8dabf820ba28eaec4c2c94460ace4" name="a11b8dabf820ba28eaec4c2c94460ace4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a11b8dabf820ba28eaec4c2c94460ace4">&#9670;&#160;</a></span>carotid_sanity_check()</h2>
 
@@ -149,6 +316,32 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a390f9e95b7e0a1919f0ec478dcca0db2" name="a390f9e95b7e0a1919f0ec478dcca0db2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a390f9e95b7e0a1919f0ec478dcca0db2">&#9670;&#160;</a></span>carotid_update_model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_platform_8h.html#a87d8ff0ac1c03aa9a97ee84e65e6b3c6">CAROTID_LINKAGE</a> void carotid_update_model </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a16b9c9e6fe86b3447bb761d023468229">carotid_context</a></td>          <td class="paramname"><span class="paramname"><em>ctx</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float *</td>          <td class="paramname"><span class="paramname"><em>params</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
