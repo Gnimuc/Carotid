@@ -10,7 +10,7 @@ include(cmake/utils.cmake)
 include(cmake/options.cmake)
 
 # External Dependencies
-add_subdirectory(external/Eigen)
+add_subdirectory(external/Eigen EXCLUDE_FROM_ALL)
 add_subdirectory(external/spdlog)
 
 # Core Library

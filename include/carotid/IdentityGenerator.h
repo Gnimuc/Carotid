@@ -31,7 +31,17 @@ public:
 class IdentityGenerator {
 
 public:
+  /// Options
+  /// \details This class is used to store the options for the IdentityGenerator class
   IdOptions opts;
+
+  /// The current output model
+  /// \details This container is used to store the output model
+  Vec<float> cur_model;
+
+  /// The current input parameters
+  /// \details This container is used to store the input parameters
+  Vec<float> cur_params;
 
 public:
   [[nodiscard]] explicit IdentityGenerator(const IdOptions opts) : opts(opts) {}

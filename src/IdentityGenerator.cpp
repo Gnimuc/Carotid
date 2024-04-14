@@ -30,11 +30,15 @@ void IdentityGenerator::loadModelFromBinary(const Path &avgModelPath,
   } else {
     spdlog::error(eigenvalsResult.error().what());
   }
+
+  cur_model = avgModel;
+  cur_params = eigenvals;
 }
 
 bool IdentityGenerator::validateModel() const {
   return avgModel.size() == getNumRows() && eigenvecs.rows() == getNumRows() &&
-         eigenvecs.cols() == getNumCols() && eigenvals.size() == getNumCols();
+         eigenvecs.cols() == getNumCols() && eigenvals.size() == getNumCols() &&
+         cur_model.size() == getNumRows() && cur_params.size() == getNumCols();
 }
 
 Vec<float> IdentityGenerator::generateBaseModel() const {
