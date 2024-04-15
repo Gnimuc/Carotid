@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: ['**']
+    branches: [ '**' ]
   pull_request:
-    branches: ['**']
+    branches: [ '**' ]
 
 env:
   BUILD_TYPE: Release
@@ -14,67 +14,126 @@ permissions:
   contents: write
 
 jobs:
-  Windows:
+  Build-Windows:
+    name: Build Windows (windows-latest)
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set Doxygen Prefix
-      id: doxygen
-      run: |
-        "DOXYGEN_PREFIX=C:\depot\doxygen\${{env.DOXYGEN_VER}}" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+      - name: Set Install Prefix
+        id: pfx
+        run: |
+          "INSTALL_PREFIX=C:\opt" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
-    - name: Set Install Prefix
-      id: pfx
-      run: |
-        "INSTALL_PREFIX=C:\opt" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+      - name: Setup Installation Env
+        run: |
+          New-Item ${{steps.pfx.outputs.INSTALL_PREFIX}} -ItemType directory
+          echo ${{steps.pfx.outputs.INSTALL_PREFIX}} | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          echo ${{steps.pfx.outputs.INSTALL_PREFIX}} | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          $ENV:Path.Split(";")
 
-    - name: Cache
-      id: cache
-      uses: actions/cache@v4
-      with:
-        path: C:\depot
-        key: Doxygen-${{env.DOXYGEN_VER}}
+      - name: Prebuild
+        run: |
+          New-Item ${{github.workspace}}\build -ItemType directory
 
-    - name: Download & Cache Doxygen
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: |
-        New-Item ${{steps.doxygen.outputs.DOXYGEN_PREFIX}} -ItemType directory
-        Invoke-WebRequest -Uri https://www.doxygen.nl/files/doxygen-${{env.DOXYGEN_VER}}-setup.exe -UserAgent "NativeHost" -OutFile ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}\doxygen_setup.exe
-    
-    - name: Setup Installation Env
-      run: |
-        New-Item ${{steps.pfx.outputs.INSTALL_PREFIX}} -ItemType directory
-        echo ${{steps.pfx.outputs.INSTALL_PREFIX}} | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-        echo ${{steps.pfx.outputs.INSTALL_PREFIX}} | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-        $ENV:Path.Split(";")
+      - name: Build
+        working-directory: ${{github.workspace}}\build
+        run: |
+          cmake .. -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=${{steps.pfx.outputs.INSTALL_PREFIX}} -DCAROTID_BUILD_TESTS=true
+          cmake --build . --config ${{env.BUILD_TYPE}}
 
-    - name: Install Doxygen
-      run: |
-        $installer = Start-Process -FilePath ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}\doxygen_setup.exe -Wait -PassThru -ArgumentList @("/VERYSILENT");
-        $installer.WaitForExit();
+      - name: Test
+        working-directory: ${{github.workspace}}\build
+        run: ctest -C ${{env.BUILD_TYPE}} --verbose
 
-    - name: Prebuild
-      run: |
-        New-Item ${{github.workspace}}\build -ItemType directory
+  Doxygen:
+    name: Deploy Documentation
+    runs-on: windows-latest
+    needs: Build-Windows
+    steps:
+      - uses: actions/checkout@v4
 
-    - name: Build
-      working-directory: ${{github.workspace}}\build
-      run: |
-        cmake .. -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=${{steps.pfx.outputs.INSTALL_PREFIX}} -DCAROTID_BUILD_TESTS=true -DCAROTID_BUILD_DOCS=true
-        cmake --build . --config ${{env.BUILD_TYPE}}
+      - name: Set Doxygen Prefix
+        id: doxygen
+        run: |
+          "DOXYGEN_PREFIX=C:\depot\doxygen\${{env.DOXYGEN_VER}}" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
-    - name: Test
-      working-directory: ${{github.workspace}}\build
-      run: ctest -C ${{env.BUILD_TYPE}} --verbose
-      
-    - name: Run Doxygen
-      working-directory: ${{github.workspace}}\build
-      run: cmake --build . --config ${{env.BUILD_TYPE}} --target CarotidDocs
+      - name: Cache
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: C:\depot
+          key: Doxygen-${{env.DOXYGEN_VER}}
 
-    - name: Deploy Docs
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ${{github.workspace}}\build\docs\html
+      - name: Download & Cache Doxygen
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          New-Item ${{steps.doxygen.outputs.DOXYGEN_PREFIX}} -ItemType directory
+          Invoke-WebRequest -Uri https://www.doxygen.nl/files/doxygen-${{env.DOXYGEN_VER}}-setup.exe -UserAgent "NativeHost" -OutFile ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}\doxygen_setup.exe
+
+      - name: Install Doxygen
+        run: |
+          $installer = Start-Process -FilePath ${{steps.doxygen.outputs.DOXYGEN_PREFIX}}\doxygen_setup.exe -Wait -PassThru -ArgumentList @("/VERYSILENT");
+          $installer.WaitForExit();
+
+      - name: Build
+        run: |
+          cmake -B ${{github.workspace}}\build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCAROTID_BUILD_TESTS=true
+          cmake --build . --config ${{env.BUILD_TYPE}}
+
+      - name: Build Doxygen
+        working-directory: ${{github.workspace}}\build
+        run: |
+          cmake --build . --config ${{env.BUILD_TYPE}} --target CarotidDocs
+
+      - name: Deploy Docs
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{github.workspace}}\build\docs\html
+
+  Build-Linux-MacOS:
+    name: Build Linux & MacOS
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, macos-14 ]
+        include:
+          - os: ubuntu-latest
+            cc: gcc-13
+            cxx: g++-13
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode version
+        if: matrix.os == 'macos-14'
+        run: sudo xcode-select -s "/Applications/Xcode_15.3.app"
+
+      - name: Config CMake
+        if: matrix.os == 'macos-14'
+        run: >
+          cmake -B ${{github.workspace}}/build 
+          -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} 
+          -DCAROTID_BUILD_TESTS=true 
+          -DCMAKE_POSITION_INDEPENDENT_CODE=true 
+
+      - name: Config CMake
+        if: matrix.os == 'ubuntu-latest'
+        run: >
+          cmake -B ${{github.workspace}}/build 
+          -DCMAKE_C_COMPILER=${{ matrix.cc }} 
+          -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} 
+          -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} 
+          -DCAROTID_BUILD_TESTS=true 
+          -DCMAKE_POSITION_INDEPENDENT_CODE=true 
+
+      - name: Build
+        working-directory: ${{github.workspace}}/build
+        run: cmake --build . --config ${{env.BUILD_TYPE}}
+
+      - name: Test
+        working-directory: ${{github.workspace}}/build
+        run: ctest -C ${{env.BUILD_TYPE}} --verbose
