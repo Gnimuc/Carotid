@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.21)
 # Set the version number
 set(Carotid_VERSION_MAJOR 0)
 set(Carotid_VERSION_MINOR 1)
-set(Carotid_VERSION_PATCH 0)
+set(Carotid_VERSION_PATCH 1)
 set(Carotid_VERSION "${Carotid_VERSION_MAJOR}.${Carotid_VERSION_MINOR}.${Carotid_VERSION_PATCH}")
 
 project(Carotid VERSION ${Carotid_VERSION} LANGUAGES CXX)
