@@ -3,6 +3,8 @@ name: CI
 on:
   push:
     branches: [ '**' ]
+    tags:
+      - "v*.*.*"
   pull_request:
     branches: [ '**' ]
 
@@ -47,6 +49,49 @@ jobs:
         working-directory: ${{github.workspace}}\build
         run: ctest -C ${{env.BUILD_TYPE}} --verbose
 
+  Deploy-Windows:
+    name: Deploy Windows (windows-latest)
+    runs-on: windows-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: Build-Windows
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set Install Prefix
+        id: pfx
+        run: |
+          "INSTALL_PREFIX=C:\opt" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
+      - name: Setup Installation Env
+        run: |
+          New-Item ${{steps.pfx.outputs.INSTALL_PREFIX}} -ItemType directory
+          echo ${{steps.pfx.outputs.INSTALL_PREFIX}} | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          echo ${{steps.pfx.outputs.INSTALL_PREFIX}} | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          $ENV:Path.Split(";")
+
+      - name: Prebuild
+        run: |
+          New-Item ${{github.workspace}}\build -ItemType directory
+
+      - name: Build
+        working-directory: ${{github.workspace}}\build
+        run: |
+          cmake .. -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=${{steps.pfx.outputs.INSTALL_PREFIX}} -DCAROTID_BUILD_TESTS=false
+          cmake --build . --config ${{env.BUILD_TYPE}}
+
+      - name: Packaging
+        working-directory: ${{github.workspace}}\build
+        run: |
+          cpack --config CPackConfig.cmake
+
+      - name: Deploy
+        uses: actions/upload-artifact@v4
+        with:
+          name: Carotid-${{github.ref_name}}-x86_64-windows-msvc
+          path: ${{github.workspace}}\build\*.zip
+          overwrite: true
+
   Doxygen:
     name: Deploy Documentation
     runs-on: windows-latest
@@ -79,7 +124,7 @@ jobs:
 
       - name: Build
         run: |
-          cmake -B ${{github.workspace}}\build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCAROTID_BUILD_DOCS=true
+          cmake -B ${{github.workspace}}\build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCAROTID_BUILD_DOCS=true -DCAROTID_BUILD_TESTS=false
 
       - name: Build Doxygen
         working-directory: ${{github.workspace}}\build
@@ -136,3 +181,57 @@ jobs:
       - name: Test
         working-directory: ${{github.workspace}}/build
         run: ctest -C ${{env.BUILD_TYPE}} --verbose
+
+  Deploy-Linux-MacOS:
+    name: Deploy Linux & MacOS
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, macos-14 ]
+        include:
+          - os: ubuntu-latest
+            cc: gcc-13
+            cxx: g++-13
+            triplet: x86_64-linux-gnu
+          - os: macos-14
+            triplet: aarch64-apple-darwin
+
+    runs-on: ${{ matrix.os }}
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: Build-Linux-MacOS
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Config CMake
+        if: matrix.os == 'macos-14'
+        run: >
+          cmake -B ${{github.workspace}}/build 
+          -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} 
+          -DCAROTID_BUILD_TESTS=false 
+          -DCMAKE_POSITION_INDEPENDENT_CODE=true
+
+      - name: Config CMake
+        if: matrix.os == 'ubuntu-latest'
+        run: >
+          cmake -B ${{github.workspace}}/build 
+          -DCMAKE_C_COMPILER=${{ matrix.cc }} 
+          -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} 
+          -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} 
+          -DCAROTID_BUILD_TESTS=false 
+          -DCMAKE_POSITION_INDEPENDENT_CODE=true
+
+      - name: Build
+        working-directory: ${{github.workspace}}/build
+        run: cmake --build . --config ${{env.BUILD_TYPE}}
+
+      - name: Packaging
+        working-directory: ${{github.workspace}}/build
+        run: cpack --config CPackConfig.cmake
+
+      - name: Deploy
+        uses: actions/upload-artifact@v4
+        with:
+          name: Carotid-${{github.ref_name}}-${{ matrix.triplet }}
+          path: ${{github.workspace}}/build/*.zip
+          overwrite: true

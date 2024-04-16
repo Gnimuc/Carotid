@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.21)
 
-project(Carotid LANGUAGES CXX)
+# Set the version number
+set(Carotid_VERSION_MAJOR 0)
+set(Carotid_VERSION_MINOR 1)
+set(Carotid_VERSION_PATCH 0)
+set(Carotid_VERSION "${Carotid_VERSION_MAJOR}.${Carotid_VERSION_MINOR}.${Carotid_VERSION_PATCH}")
+
+project(Carotid VERSION ${Carotid_VERSION} LANGUAGES CXX)
 
 # Turn on using VS solution folders
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -41,3 +47,9 @@ if (CAROTID_BUILD_DOCS)
     add_subdirectory(docs)
 endif()
 
+# Packaging
+set(CPACK_PACKAGE_NAME "Carotid")
+set(CPACK_PACKAGE_VERSION "${Carotid_VERSION}")
+set(CPACK_GENERATOR "ZIP")
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
+include(CPack)

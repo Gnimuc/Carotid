@@ -27,3 +27,6 @@ install(EXPORT CarotidTargets
         NAMESPACE Carotid::
         FILE Carotid-config.cmake
         DESTINATION lib/cmake/Carotid)
+
+# Install LICENSE
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/LICENSE DESTINATION share)
