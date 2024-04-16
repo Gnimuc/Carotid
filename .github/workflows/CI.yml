@@ -79,8 +79,7 @@ jobs:
 
       - name: Build
         run: |
-          cmake -B ${{github.workspace}}\build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCAROTID_BUILD_TESTS=true
-          cmake --build . --config ${{env.BUILD_TYPE}}
+          cmake -B ${{github.workspace}}\build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCAROTID_BUILD_DOCS=true
 
       - name: Build Doxygen
         working-directory: ${{github.workspace}}\build
