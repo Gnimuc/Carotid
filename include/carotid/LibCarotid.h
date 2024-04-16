@@ -2,7 +2,8 @@
 #define LIBCAROTID_H
 
 #include "carotid/Platform.h"
-#include "stdint.h"
+#include <stdbool.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
