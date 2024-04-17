@@ -77,10 +77,8 @@ $(function() {
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> <a href="https://github.com/Gnimuc/Carotid/actions/workflows/CI.yml"><img src="https://github.com/Gnimuc/Carotid/actions/workflows/CI.yml/badge.svg" alt="CI" style="pointer-events: none;" class="inline"/></a> <a href="https://gnimuc.github.io/Carotid"><img src="https://img.shields.io/badge/docs-dev-blue.svg" alt="Documentation" style="pointer-events: none;" class="inline"/></a></p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Build</h1>
-<div class="fragment"><div class="line">mkdir build</div>
-<div class="line">cd build</div>
-<div class="line">cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=~/your_install_prefix_dir</div>
-<div class="line">cmake --build . --config Release</div>
+<div class="fragment"><div class="line">cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=~/your_install_prefix_dir</div>
+<div class="line">cmake --build build --config Release</div>
 <div class="line">ctest --Release</div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>
