@@ -21,7 +21,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set Install Prefix
         id: pfx
@@ -56,7 +56,7 @@ jobs:
     needs: Build-Windows
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set Install Prefix
         id: pfx
@@ -97,7 +97,7 @@ jobs:
     runs-on: windows-latest
     needs: Build-Windows
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set Doxygen Prefix
         id: doxygen
@@ -150,7 +150,7 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Select Xcode version
         if: matrix.os == 'macos-14'
@@ -201,7 +201,7 @@ jobs:
     needs: Build-Linux-MacOS
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Config CMake
         if: matrix.os == 'macos-14'
